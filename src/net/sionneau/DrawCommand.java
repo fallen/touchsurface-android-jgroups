@@ -1,3 +1,7 @@
+/* This is a port of the JGroups Draw demo
+ * by Yann Sionneau <yann.sionneau@telecom-sudparis.eu>
+ */
+
 package net.sionneau;
 
 import org.jgroups.util.Streamable;

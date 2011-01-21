@@ -1,3 +1,7 @@
+/* This is a port of the JGroups Draw demo
+ * by Yann Sionneau <yann.sionneau@telecom-sudparis.eu>
+ */
+
 package net.sionneau;
 
 import java.io.DataInputStream;
@@ -371,7 +375,6 @@ private class DrawPanel {
                     dos.writeInt(Color.red(col));
                     dos.writeInt(Color.green(col));
                     dos.writeInt(Color.blue(col));
-                    //dos.writeInt(col.getRGB());
                 }
                 dos.flush();
                 Log.e("touchsurface", "On Žcrit !");
@@ -426,21 +429,16 @@ private class DrawPanel {
     public void drawPoint(DrawCommand c) {
         if(c == null) return;
         Integer col=new Integer(Color.rgb(c.r, c.g, c.b));
-//        gr.setColor(col);
         
-        // ON FAIT UN POINT ET ON REFRESH
+        // We draw a circle and then we refresh
         Paint p = new Paint();
         p.setColor(col.intValue());
         if (this.surface == null)
         		Log.e("TouchSurface", "surface == null dans Draw.drawPoint() class == " + this.getClass());
         	else
-        		//this.surface.drawPoint(c.x, c.y, p);
         		this.surface.drawCircle(c.x, c.y, 5, p);
         this.view.invalidate();
 
-        
-//        gr.fillOval(c.x, c.y, 10, 10);
-//        repaint();
         if(state != null) {
             synchronized(state) {
                 state.put(new Point(c.x, c.y), col);
@@ -450,12 +448,10 @@ private class DrawPanel {
     
     public void clear() {
     	
-    	// ICI ON EFFACE L'ECRAN
+    	// Here we clean the screen
     	
-    	Paint p = new Paint();
-    	p.setColor(Color.WHITE);
+    	surface.drawColor(Color.WHITE);
     	view.invalidate();
-  
         if(state != null) {
             synchronized(state) {
                 state.clear();

@@ -1,3 +1,7 @@
+/* This is a port of the JGroups Draw demo
+ * by Yann Sionneau <yann.sionneau@telecom-sudparis.eu>
+ */
+
 package net.sionneau;
 
 import org.jgroups.*;
@@ -125,16 +129,18 @@ public class TouchSurface extends Activity {
 
 	
 		public void surfaceCreated(SurfaceHolder holder) {
-			   String           props="/sdcard/udp.xml";
+			   String           props="udp.xml";
 			   boolean          no_channel=false;
 			   boolean          jmx=false;
 			   boolean          use_state=false;
 			   boolean          use_blocking=false;
 			   String           group_name=null;
 			   long             state_timeout=5000;
-			buffer  = Bitmap.createBitmap(getWidth(), getHeight(), Config.ARGB_8888);
-			surface = new Canvas(buffer);
-			paint   = new Paint();
+			   
+			   
+			   buffer  = Bitmap.createBitmap(getWidth(), getHeight(), Config.ARGB_8888);
+			   surface = new Canvas(buffer);
+			   paint   = new Paint();
 
 
 			/*   WifiManager wifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
