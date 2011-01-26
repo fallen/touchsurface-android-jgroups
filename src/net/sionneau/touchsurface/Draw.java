@@ -2,7 +2,7 @@
  * by Yann Sionneau <yann.sionneau@telecom-sudparis.eu>
  */
 
-package net.sionneau;
+package net.sionneau.touchsurface;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

@@ -2,7 +2,7 @@
  * by Yann Sionneau <yann.sionneau@telecom-sudparis.eu>
  */
 
-package net.sionneau;
+package net.sionneau.touchsurface;
 
 import org.jgroups.util.Streamable;
 
